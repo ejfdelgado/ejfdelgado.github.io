@@ -1,32 +1,38 @@
-
-Objetivo
+---
+layout: default
+title: html5/css3/ts/js
+description: Arquitectura de referencia para la capa de presentación de aplicaciónes empresariales en Colombia
+---
+# [](#header-1)Objetivo
 
 Definir la arquitectura de referencia para el desarrollo de una aplicación web basada en el diseño SPA (Single Page Application) y dirigida a la tecnología Angular 4. Este documento solo se enfocará en la capa de presentación. La meta final es proveer a los equipos de desarrollo lineamientos sencillos y claros, a través de módulos, que permitan avanzar progresivamente el desarrollo de acuerdo a las necesidades sin tener que hacer reprocesos (refactor).
 
-Metodología
+# [](#header-1)Metodología
 
 Entendiendo que nuestro interés va dirigido a soluciones empresariales en Colombia, se listarán los requerimientos funcionales y no funcionales más comunes a los que se enfrenta el equipo de desarrollo de las aplicaciones web. Como resultado se podrá definir el alcance a través de la enumeración de los componentes con los que la aplicación web interactuará para finalmente definir los lineamientos y módulos.
 
 
-Bibliotecas:
+# [](#header-1)Desarrollo
+
+## [](#header-2)Bibliotecas:
 
 Se definen como el conjunto de datos estructurados que tienen un sentido de negocio sin lógica de programación, por ejemplo expresiones regulares, definición de máximos y mínimos, etiquetas de campos, ayudas, definiciones de botones (colores, iconos, etiquetas).
 
-¿Por qué es necesario?
+### [](#header-3)¿Por qué es necesario?
 
 Las entidades del estado y empresas colombianas se caracterizan por tener gran cantidad de validaciones, reglas complejas y repetitivas. Al incluirlas en desarrollos web, si dicha lógica de negocio no está centralizada, se comenzará a replicar código y tarde o temprano saldrán errores porque no hay homogeneidad; es decir en un lado aparecerá o se comportará de una forma diferente.
 
-¿Qué se debe incluir en las bibliotecas?
+### [](#header-3)¿Qué se debe incluir en las bibliotecas?
 
 En la capa de presentación hay dos aspectos clave:
 
-1. Visual: Las aplicaciones web incluyen textos, colores e iconos que se deben estandarizar. Para los textos, como consecuencia se requiere un módulo de traducción, que además debe permitir ser multilenguaje. Los botones, a su vez 
+1. Visual: Las aplicaciones web incluyen textos, colores e iconos que se deben estandarizar. Para los textos, como consecuencia se requiere un módulo de traducción, que además debe permitir ser multilenguaje. Los botones, a su vez
 
 2. Validaciones: 
 
-Lineamientos
+### [](#header-3)Lineamientos
 
-Fragmentación y/o jerarquía:
+#### [](#header-4)Fragmentación y/o jerarquía:
 
 Para tener éxito en la implantación de las bibliotecas, se deben fragmentar y/o jerarquizar. Si no está divido y/o agrupada la información, usualmente los desarrolladores perderán el orden repitiendo definiciones o dejando de usar las bibliotecas centralizadas remplazándolas por código quemado.
 
@@ -39,7 +45,7 @@ Luego, teniendo en cuenta de la dirección en que aumenta la aplicación, se deb
 Cada proyecto puede tener sus propias bibliotecas, pero 
 
 
-Requerimientos:
+# [](#header-1)Requerimientos:
 
 Módulos:
 
