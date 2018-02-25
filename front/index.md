@@ -20,15 +20,15 @@ Se definen como el conjunto de datos estructurados que tienen un sentido de nego
 
 ### [](#header-3)¿Por qué es necesario?
 
-Las entidades del estado y empresas colombianas se caracterizan por tener gran cantidad de validaciones, reglas complejas y repetitivas. Al incluirlas en desarrollos web, si dicha lógica de negocio no está centralizada, se comenzará a replicar código y tarde o temprano saldrán errores porque no hay homogeneidad; es decir en un lado aparecerá o se comportará de una forma diferente.
+Las entidades del estado y empresas colombianas se caracterizan por tener gran cantidad de validaciones, reglas complejas y repetitivas. Al incluirlas en desarrollos web, si dicha lógica de negocio no está centralizada, se comenzará a replicar código, tarde o temprano saldrán errores porque no hay homogeneidad en la aplicación; todo se comportará de formas diferentes, será evidente y difícil de mantener.
 
 ### [](#header-3)¿Qué se debe incluir en las bibliotecas?
 
 En la capa de presentación hay dos aspectos clave:
 
-1. Visual: Las aplicaciones web incluyen textos, colores e iconos que se deben estandarizar. Para los textos, como consecuencia se requiere un módulo de traducción, que además debe permitir ser multilenguaje. Los botones, a su vez
+1. <strong>Estático visual</strong>: En general las aplicaciones web incluyen textos, botones y ventanas emergentes que deben estandarizarse. Para los textos, se requiere un módulo multilenguaje que defina títulos, mensajes de alerta, ayudas y etiquetas de campos entre otros. Los botones, a su vez tienen reglas controladas por la usabilidad. Se debe acotar la libertad que tienen los desarrolladores para usar los botones porque no todas las combinaciones de color, etiquetas, ayudas e iconos son correctas. Una biblioteca de botones debe entonces permitir elegir de un conjunto limitado el botón más adecuado para la ocasión. Finalmente, las ventanas emergentes, son el conjunto de los dos aspectos anteriores más algunos propios: tiene título, ícono, mensaje y botones. Algunas veces contienen controles y tablas pero eso se abordará más adelante.
 
-2. Validaciones: 
+2. <strong>Comportamientos por configuración</strong>: 
 
 ### [](#header-3)Lineamientos
 
