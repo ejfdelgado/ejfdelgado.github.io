@@ -16,22 +16,24 @@ Entendiendo que nuestro interés va dirigido a soluciones empresariales en Colom
 
 ## [](#header-2)Bibliotecas:
 
-Se definen como el conjunto de datos estructurados que tienen un sentido de negocio sin lógica de programación, por ejemplo expresiones regulares, definición de máximos y mínimos, etiquetas de campos, ayudas, definiciones de botones (colores, iconos, etiquetas).
+Se definen como el conjunto de datos estructurados que tienen un sentido de negocio sin lógica de programación, por ejemplo textos como etiquetas de campos, ayudas, definiciones de botones, definición de máximos y mínimos, expresiones regulares entre otros.
 
 ### [](#header-3)¿Por qué es necesario?
 
-Las entidades del estado y empresas colombianas se caracterizan por tener gran cantidad de validaciones, reglas complejas y repetitivas. Al llevarlas a un desarrollos web si dicha lógica de negocio no está centralizada, tarde o temprano saldrán errores porque no hay homogeneidad en la aplicación; entonces será evidente porque todo se comportará de formas diferentes y será difícil de mantener porque hay código replicado.
+Las entidades del estado y empresas colombianas se caracterizan por tener gran cantidad de entidades de negocio, validaciones, reglas complejas y repetitivas. Al llevarlas a un desarrollos web si dicha lógica de negocio no está centralizada, tarde o temprano saldrán errores porque no hay homogeneidad en la aplicación, será evidente porque todo se comportará de formas diferentes y será difícil de mantener porque hay código replicado.
 
 ### [](#header-3)¿Qué se debe incluir en las bibliotecas?
 
 En la capa de presentación tenemos los siguientes aspectos clave:
 
 1. <strong>Estático visual</strong>: En este aspecto se incluyen textos, botones y ventanas emergentes. Si estos elementos se estandarizan, los desarrolladores se desgastarán menos tiempo pensando en cómo mezclar los diferentes elementos para que las pantallas luzcan lo mejor posible.
-* Los textos: son bastamente usados, sobre todo en títulos, mensajes emergentes, ayudas y etiquetas de campos entre otros. Una ventaja de tener una biblioteca de textos es que permite administrarla por una persona no desarrolladora y además abre la posibilidad de soportar múltiples lenguajes.
-* Los botones: estos tienen reglas controladas por la usabilidad. Se debe acotar la libertad que tienen los desarrolladores para usar los botones porque no todas las combinaciones de color, etiquetas, ayudas e iconos son correctas. Una biblioteca de botones debe entonces permitir elegir de un conjunto limitado el botón más adecuado para la ocasión.
-* Las ventanas emergentes: son el conjunto de los dos aspectos anteriores, más algunos propios: ellas tienen título, ícono, mensaje y botones. Algunas veces contienen campos y tablas pero eso se abordará más adelante. Una vez más, acá se deben acotar los aspectos mencionados porque no todas las combinaciones tienen sentido. Además hay algunos que se repetirán demasiado como los mensajes de éxito, error, los que piden confirmar antes de continuar, entre otros.
+* <strong>Los textos</strong>: son bastamente usados, sobre todo en títulos, mensajes emergentes, ayudas y etiquetas de campos entre otros. Una ventaja de tener una biblioteca de textos es que permite administrarla por una persona no desarrolladora y además abre la posibilidad de soportar múltiples lenguajes.
+* <strong>Los botones</strong>: estos tienen reglas controladas por la usabilidad. Se debe acotar la libertad que tienen los desarrolladores para usar los botones porque no todas las combinaciones de color, etiquetas, ayudas e iconos son correctas. Una biblioteca de botones debe entonces permitir elegir de un conjunto limitado el botón más adecuado para la ocasión.
+* <strong>Las ventanas emergentes</strong>: son el conjunto de los dos aspectos anteriores, más algunos propios: ellas tienen título, ícono, mensaje y botones. Algunas veces contienen campos y tablas pero eso se abordará más adelante. Una vez más, acá se deben acotar los aspectos mencionados porque no todas las combinaciones tienen sentido. Además hay algunos que se repetirán demasiado como los mensajes de éxito, error, los que piden confirmar antes de continuar, entre otros.
 
 2. <strong>Comportamientos por configuración</strong>: 
+* Validaciones: Cada entidad de negocio tendrá una representación visual, cuando.
+* 
 
 ### [](#header-3)Lineamientos
 
