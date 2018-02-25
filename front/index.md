@@ -20,13 +20,16 @@ Se definen como el conjunto de datos estructurados que tienen un sentido de nego
 
 ### [](#header-3)¿Por qué es necesario?
 
-Las entidades del estado y empresas colombianas se caracterizan por tener gran cantidad de validaciones, reglas complejas y repetitivas. Al incluirlas en desarrollos web, si dicha lógica de negocio no está centralizada, se comenzará a replicar código, tarde o temprano saldrán errores porque no hay homogeneidad en la aplicación; todo se comportará de formas diferentes, será evidente y difícil de mantener.
+Las entidades del estado y empresas colombianas se caracterizan por tener gran cantidad de validaciones, reglas complejas y repetitivas. Al llevarlas a un desarrollos web si dicha lógica de negocio no está centralizada, tarde o temprano saldrán errores porque no hay homogeneidad en la aplicación; entonces será evidente porque todo se comportará de formas diferentes y será difícil de mantener porque hay código replicado.
 
 ### [](#header-3)¿Qué se debe incluir en las bibliotecas?
 
-En la capa de presentación hay dos aspectos clave:
+En la capa de presentación tenemos los siguientes aspectos clave:
 
-1. <strong>Estático visual</strong>: En general las aplicaciones web incluyen textos, botones y ventanas emergentes que deben estandarizarse. Para los textos, se requiere un módulo multilenguaje que defina títulos, mensajes de alerta, ayudas y etiquetas de campos entre otros. Los botones, a su vez tienen reglas controladas por la usabilidad. Se debe acotar la libertad que tienen los desarrolladores para usar los botones porque no todas las combinaciones de color, etiquetas, ayudas e iconos son correctas. Una biblioteca de botones debe entonces permitir elegir de un conjunto limitado el botón más adecuado para la ocasión. Finalmente, las ventanas emergentes, son el conjunto de los dos aspectos anteriores más algunos propios: tiene título, ícono, mensaje y botones. Algunas veces contienen controles y tablas pero eso se abordará más adelante.
+1. <strong>Estático visual</strong>: En este aspecto se incluyen textos, botones y ventanas emergentes. Si estos elementos se estandarizan, los desarrolladores se desgastarán menos tiempo pensando en cómo mezclar los diferentes elementos para que las pantallas luzcan lo mejor posible.
+* Los textos: son bastamente usados, sobre todo en títulos, mensajes emergentes, ayudas y etiquetas de campos entre otros. Una ventaja de tener una biblioteca de textos es que permite administrarla por una persona no desarrolladora y además abre la posibilidad de soportar múltiples lenguajes.
+* Los botones: estos tienen reglas controladas por la usabilidad. Se debe acotar la libertad que tienen los desarrolladores para usar los botones porque no todas las combinaciones de color, etiquetas, ayudas e iconos son correctas. Una biblioteca de botones debe entonces permitir elegir de un conjunto limitado el botón más adecuado para la ocasión.
+* Las ventanas emergentes: son el conjunto de los dos aspectos anteriores, más algunos propios: ellas tienen título, ícono, mensaje y botones. Algunas veces contienen campos y tablas pero eso se abordará más adelante. Una vez más, acá se deben acotar los aspectos mencionados porque no todas las combinaciones tienen sentido. Además hay algunos que se repetirán demasiado como los mensajes de éxito, error, los que piden confirmar antes de continuar, entre otros.
 
 2. <strong>Comportamientos por configuración</strong>: 
 
