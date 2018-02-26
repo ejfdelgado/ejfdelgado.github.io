@@ -3,6 +3,10 @@ layout: default
 titulo: html5/css3/ts/js
 descripcion: Arquitectura de referencia para la capa de presentación de aplicaciónes empresariales en Colombia
 ---
+
+* Do not remove this line (it will not be displayed)
+{:toc}
+
 # [](#header-1)Objetivo
 
 Definir la arquitectura de referencia para el desarrollo de una aplicación web basada en el diseño SPA (Single Page Application) y dirigida a la tecnología Angular 4. Este documento solo se enfocará en la capa de presentación. La meta final es proveer a los equipos de desarrollo lineamientos sencillos y claros, a través de módulos, que permitan avanzar progresivamente el desarrollo de acuerdo a las necesidades sin tener que hacer reprocesos (refactor).
