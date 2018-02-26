@@ -1,7 +1,7 @@
 ---
 layout: default
-page.title: html5/css3/ts/js
-page.description: Arquitectura de referencia para la capa de presentación de aplicaciónes empresariales en Colombia
+titulo: html5/css3/ts/js
+descripcion: Arquitectura de referencia para la capa de presentación de aplicaciónes empresariales en Colombia
 ---
 # [](#header-1)Objetivo
 
