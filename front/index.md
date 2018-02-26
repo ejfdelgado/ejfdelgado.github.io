@@ -18,7 +18,7 @@ Entendiendo que nuestro interés va dirigido a soluciones empresariales en Colom
 
 # [](#header-1)Desarrollo
 
-## [](#header-2)Bibliotecas:
+## [](#header-2)Bibliotecas
 
 Se definen como el conjunto de datos estructurados que tienen un sentido de negocio sin lógica de programación, por ejemplo textos como etiquetas de campos, ayudas, definiciones de botones, definición de máximos y mínimos, expresiones regulares entre otros.
 
@@ -41,7 +41,7 @@ En la capa de presentación tenemos los siguientes aspectos clave:
 
 ### [](#header-3)Lineamientos
 
-#### [](#header-4)Fragmentación y/o jerarquía:
+#### [](#header-4)Fragmentación y/o jerarquía
 
 Para tener éxito en la implantación de las bibliotecas, se deben fragmentar y/o jerarquizar. Si no está divido y/o agrupada la información, usualmente los desarrolladores perderán el orden repitiendo definiciones o dejando de usar las bibliotecas centralizadas remplazándolas por código quemado.
 
@@ -54,7 +54,7 @@ Luego, teniendo en cuenta de la dirección en que aumenta la aplicación, se deb
 Cada proyecto puede tener sus propias bibliotecas, pero 
 
 
-# [](#header-1)Requerimientos:
+# [](#header-1)Requerimientos
 
 Módulos:
 
