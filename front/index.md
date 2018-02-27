@@ -93,6 +93,10 @@ El tipo de dato más sencillo, preciso y estándar es el que plantea unix; el ep
 
 Si la fecha no está sincronizada con la del servidor, bastará con cambiar la fecha del computador para poder esquivar las reglas. Entonces el módulo deberá mantener una versión actualizada de la fecha actual y permitir ser accedida desde el principio de la aplicación.
 
+#### [](#header-4)Operaciones
+
+Este módulo debe centralizar todas las operaciones que involucren fechas, sean sumas, restas, comparaciones, etc. Todas estas funciones deben recibir representaciones epoch y deben igualmente entregar epoch.
+
 ***
 
 ## [](#header-2)Módulos de bibliotecas
@@ -149,6 +153,9 @@ Módulos:
 
 - Cargue de listas tipo (llave/valor) con metadata + caché. p.e. Departamento/Municipio/Indicativo tel.
 - Biblioteca de expresiones regulares
+- Administrador de fechas.
+	- Sincronizar fecha con el servidor; no usar la local del navegador.
+	- Cálculo epoch de: (Fin del (día/mes/año), Inicio del (día/mes/año), sumar (días, meses, años))
 
 - Interfáz con Gestor documental (subir, bajar, actualizar)
 - Visor de documentos (pdf/txt/imágenes) Con capacidad de imprimir.
@@ -179,9 +186,6 @@ Módulos:
 - Administrador de tabs.
 	- Abandono de tab condicionado.
 	- Navegación controlada.
-- Administrador de fechas.
-	- Sincronizar fecha con el servidor; no usar la local del navegador.
-	- Cálculo epoch de: (Fin del (día/mes/año), Inicio del (día/mes/año), sumar (días, meses, años))
 - Manejo de Formularios:
 	- Usar jerarquía de Sección/Grupo de campos/etiqueta de campo. p.e. con fines de auditoría.
 	- Retroalimentación visual de errores con color rojo.
