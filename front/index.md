@@ -33,18 +33,17 @@ Se refiere a las funciones de transformación que se aplican a los datos con el 
 
 ### [](#header-3)Lineamientos
 
-#### [](#header-4)Bidireccional
-
-Significa que debe existir la función que formatea el dato pero también la función que regenera el dato a partir de una representación formateada. Aplica para todos los tipos de datos involucrados en campos de entrada. Esto es prerrequisito porque los campos de entrada recibirán el dato en la representación del usuario y estos deben bajar al código como datos básicos. Una implicación de este punto es que las funciones deben ser 1:1, es decir que una misma representación formateada debe tener un único valor posible.
-
-#### [](#header-4)¿qué filtros crear?
+#### [](#header-4)¿Qué filtros crear?
 
 En este punto es mejor pecar por exceso. Hay unos básicos que saltan a la vista como lo que se han presentado previamente; fechas o dinero. Pero también pueden existir otros más complejos, por ejemplo el que recibe un objeto que representa una empresa y genera el formato "Nit 897456-8 / Heinsohn", otro común es el que convierte un dato boleano y genera Sí/No, finalmente incluyo el que formatea decimales rellenando con ceros después de la coma. En cada proyecto se deben detectar todos los tipos de datos que se requieren formatear.
 
-#### [](#header-4)Enumeraciones
+#### [](#header-4)Las enumeraciones deben tener su propio filtro
 
-Las enumeraciones son literales o textos que tienen sentido en código pero no se deben presentar al usuario final sin formatear. Por ejemplo, mientras a lo largo del código se maneja la enumeración "CEDULA_CIUDADANIA" el usuario deberá ver "Cédula de ciudadanía". Se debe crear entonces un filtro especial que transforma enumeraciones a su representación formateada. Este punto se debe complementar con el módulo de administración de listas de datos.
+Las enumeraciones son definiciones de tipos de datos que tienen sentido en código pero no se deben presentar al usuario final sin formatear. Por ejemplo, mientras a lo largo del código se maneja la enumeración "CEDULA_CIUDADANIA" el usuario deberá ver "Cédula de ciudadanía". Se debe crear entonces un filtro especial que transforma enumeraciones a su representación formateada. Este punto se debe complementar con el módulo de administración de listas de datos.
 
+#### [](#header-4)Deben ser bidireccionales
+
+Significa que debe existir la función que formatea el dato pero también la función que regenera el dato a partir de una representación formateada. Aplica para todos los tipos de datos involucrados en campos de entrada. Esto es prerrequisito porque los campos de entrada recibirán el dato en la representación del usuario y estos deben bajar al código como datos básicos. Una implicación de este punto es que las funciones deben ser 1:1, es decir que una misma representación formateada debe tener un único valor posible.
 
 ## [](#header-2)Módulo de administración de listas de datos
 ***
@@ -61,7 +60,7 @@ En este módulo se plantea administrar todos los tipos de datos de negocio que <
 
 En su implementación debe ser singleton.
 
-#### [](#header-4)Cache
+#### [](#header-4)Debe tener cache
 
 Teniendo en cuenta que las listas de datos rara vez cambian y que tienen un uso intensivo a lo largo de la aplicación. Este módulo debe soportar caché en la capa de presentación para que sirva de proxy antes de invocar el servicio. Esto tiene un impacto fuerte porque usualmente todas las pantallas tienen algun tipo de dato no básico sumado a los argumentos mencionados previamente.
 
@@ -69,7 +68,7 @@ Teniendo en cuenta que las listas de datos rara vez cambian y que tienen un uso 
 
 Las listas de datos deben contener una representación tipo máquina, por ejemplo el id, que puede ser numérico o enumerado entre otros. Por otro lado deben tener la representación de usuario final que será usada para filtrar el dato. Opcionalmente debe permitir incluir metadatos. Los metadatos son información que complementa el tipo de dato y que está estrechamente relacionada a cada valor dentro de una lista de datos. Por ejemplo, los departamentos o municípios tienen asociado un indicativo de teléfono, el cuál debe estar disponible al tiempo que lo está.
 
-#### [](#header-4)Filtrable
+#### [](#header-4)Deben ser Filtrables
 
 Las listas de datos deben permitir ser filtrables. Esto es muy importante para permitir que las listas de datos tengan jerarquía. Un ejemplo básico son las listas de departamentos y municipios, en este caso los municipios deben permitir ser filtrados por un departamento específico.
 
@@ -85,15 +84,15 @@ Las fechas son un tipo de dato especial que tiene comportamientos complejos que 
 
 ### [](#header-3)Lineamientos
 
-#### [](#header-4)Representación epoch
+#### [](#header-4)Deben tener representación epoch
 
 El tipo de dato más sencillo, preciso y estándar es el que plantea unix; el epoch. Es ampliamente soportado en todos los lenguajes: javascript, java, python, php, etc. Por lo tanto se debe utilizar este tipo de dato, tanto en el código de la capa de presentación como en la definición de los servicios del back end.
 
-#### [](#header-4)Fecha sincronizada
+#### [](#header-4)la fecha debe estar sincronizada
 
 Si la fecha no está sincronizada con la del servidor, bastará con cambiar la fecha del computador para poder esquivar las reglas. Entonces el módulo deberá mantener una versión actualizada de la fecha actual y permitir ser accedida desde el principio de la aplicación.
 
-#### [](#header-4)Operaciones
+#### [](#header-4)Debe centralizar las operaciones
 
 Este módulo debe centralizar todas las operaciones que involucren fechas, sean sumas, restas, comparaciones, etc. Todas estas funciones deben recibir representaciones epoch y deben igualmente entregar epoch.
 
@@ -122,7 +121,7 @@ En la capa de presentación tenemos los siguientes aspectos clave:
 
 En su implementación debe ser singleton.
 
-#### [](#header-4)Fragmentación y/o jerarquía
+#### [](#header-4)Deben permitir fragmentarse y/o tener jerarquía
 
 Para tener éxito en la implantación de las bibliotecas, se deben fragmentar y/o jerarquizar. Si no está divido y/o agrupada la información, usualmente los desarrolladores perderán el orden repitiendo definiciones o dejando de usar las bibliotecas centralizadas remplazándolas por código quemado.
 
