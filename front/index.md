@@ -9,7 +9,7 @@ descripcion: Arquitectura de referencia para la capa de presentación de aplicac
 
 # [](#header-1)Objetivo
 
-Definir la arquitectura de referencia para el desarrollo de una aplicación web basada en el diseño SPA (Single Page Application) y dirigida a la tecnología Angular 4. Este documento solo se enfocará en la capa de presentación. La meta final es proveer a los equipos de desarrollo lineamientos sencillos y claros, a través de módulos, que permitan avanzar progresivamente el desarrollo de acuerdo a las necesidades sin tener que hacer reprocesos (refactor).
+Definir la arquitectura de referencia para el desarrollo de una aplicación web basada en el diseño SPA (Single Page Application) y dirigida a la tecnología Angular 5. Este documento solo se enfocará en la capa de presentación. La meta final es proveer a los equipos de desarrollo lineamientos sencillos y claros, a través de módulos, que permitan avanzar progresivamente el desarrollo de acuerdo a las necesidades sin tener que hacer reprocesos (refactor).
 
 # [](#header-1)Metodología
 
@@ -17,6 +17,8 @@ Entendiendo que nuestro interés va dirigido a soluciones empresariales en Colom
 
 
 # [](#header-1)Desarrollo
+
+***
 
 ## [](#header-2)Filtros de datos
 
@@ -26,9 +28,9 @@ Son las funciones de transformación que se aplican a los datos con el fin de pr
 
 * <strong>Rendimiento</strong>: si internamente se usan datos formateados, cada vez que toque hacer operaciones como sumas o comparaciones, será necesario primero transformar los datos, incurriendo en más operaciones. Este punto se agrava cuando las funciones de transformación son complejas.
 
-* <strong>Propenso a errores</strong>: un caso ocurre en las comparaciones de datos y como consecuenca también en los ordenamientos. Por ejemplo el formato de fecha dd/mm/aaaa no se ordena correctamente; porque el texto "02/02/2017" da mayor que "01/02/2018" lo cual es falso.
+* <strong>Propenso a errores</strong>: un caso ocurre en las comparaciones de datos y como consecuenca también en los ordenamientos. Por ejemplo el formato de fecha dd/mm/aaaa no se ordena correctamente porque el texto "02/02/2017" es mayor que "01/02/2018" lo cual es falso.
 
-* <strong>Homogeneidad</strong>: Si no se centralizan las funciones de transformación de datos, puede pasar que: 1. Los desarrolladores presentarán las variables al al usuario final en bruto, es decir sin el formato deseado. 2. Los desarrolladores replicarán las funciones de transformación que puede que presenten comportamientos diferentes.
+* <strong>Homogeneidad</strong>: Si no se centralizan las funciones de transformación de datos, puede pasar que: 1. Los desarrolladores presentarán las variables al usuario final en bruto, es decir sin el formato deseado. 2. Los desarrolladores replicarán las funciones de transformación que puede que presenten comportamientos diferentes.
 
 ### [](#header-3)Lineamientos
 
@@ -43,6 +45,8 @@ En este punto es mejor pecar por exceso. Hay unos básicos que saltan a la vista
 #### [](#header-4)Enumeraciones
 
 Las enumeraciones son literales o textos que tienen sentido en código pero no se deben presentar al usuario final sin formatear. Por ejemplo, mientras a lo largo del código se maneja la enumeración "CEDULA_CIUDADANIA" el usuario deberá ver "Cédula de ciudadanía". Se debe crear entonces un filtro especial que transforma enumeraciones a su representación formateada. Este punto se debe complementar con el módulo de administración de listas de datos.
+
+***
 
 ## [](#header-2)Módulo de administración de listas de datos
 
@@ -68,6 +72,29 @@ Las listas de datos deben contener una representación tipo máquina, por ejempl
 
 Las listas de datos deben permitir ser filtrables. Hay listas de datos
 
+***
+
+## [](#header-2)Módulo de administración de fechas
+
+Las fechas son un tipo de dato especial que tiene comportamientos complejos que no son evidentes. 
+
+### [](#header-3)¿Por qué es necesario?
+
+* <strong>Vulnerabilidad</strong>: En las empresas colombianas hay muchos requerimientos fuertes que involucran las fechas, por ejemplo restricciones de máximos y mínimos. En los navegadores, bastará con cambiar la fecha del computador para hacer creer a la capa de presentación que la fecha es otra.
+* <strong>Complejidad alta</strong>: Las fechas incluyen muchos cálculos complejos que son repetitivos. Por ejemplo: 1. El último día del mes, que debe tener en cuenta que los meses tienen días irregulares incluyendo los años biciestos. 2. Conteo de días hábiles, que debe tener en cuenta la parametrización de base de datos con los días feriados para colombia. Si no se centralizan estos cáculos, se  replicará código y será muy probable que estos contengan errores.
+
+### [](#header-3)Lineamientos
+
+#### [](#header-4)Representación epoch
+
+El tipo de dato más sencillo, preciso y estándar es el que plantea unix; el epoch. Es ampliamente soportado en todos los lenguajes: javascript, java, python, php, etc. Por lo tanto se debe utilizar este tipo de dato, tanto en el código de la capa de presentación como en la definición de los servicios del back end.
+
+#### [](#header-4)Fecha sincronizada
+
+Si la fecha no está sincronizada con la del servidor, bastará con cambiar la fecha del computador para poder esquivar las reglas. Entonces el módulo deberá mantener una versión actualizada de la fecha actual y permitir ser accedida desde el principio de la aplicación.
+
+***
+
 ## [](#header-2)Módulos de bibliotecas
 
 Se definen como el conjunto de datos estructurados que tienen un sentido de negocio sin lógica de programación, por ejemplo textos como etiquetas de campos, ayudas, definiciones de botones, definición de máximos y mínimos, expresiones regulares entre otros.
@@ -87,7 +114,6 @@ En la capa de presentación tenemos los siguientes aspectos clave:
 
 2. <strong>Comportamientos por configuración</strong>: 
 * Validaciones: Cada entidad de negocio tendrá una representación visual, cuando.
-* 
 
 ### [](#header-3)Lineamientos
 
@@ -105,13 +131,27 @@ Luego, teniendo en cuenta de la dirección en que aumenta la aplicación, se deb
 
 Cada proyecto puede tener sus propias bibliotecas, pero 
 
+***
+
+## [](#header-2)Módulo de 
+
+### [](#header-3)¿Por qué es necesario?
+
+* <strong></strong>: 
+
+### [](#header-3)Lineamientos
+
+***
+
 # [](#header-1)Requerimientos
 
 Módulos:
 
+- Cargue de listas tipo (llave/valor) con metadata + caché. p.e. Departamento/Municipio/Indicativo tel.
+- Biblioteca de expresiones regulares
+
 - Interfáz con Gestor documental (subir, bajar, actualizar)
 - Visor de documentos (pdf/txt/imágenes) Con capacidad de imprimir.
-- Biblioteca de expresiones regulares
 - Filtros configurables (dinero/fecha/periodo/epoch) (manejo controlado de decimales, indicador de millomes, miles, signos de $,%)
 - Directivas específicas para campos:
 	- Básicos (texto/número/html5(Correo, Celular, Teléfono)) que tengan (ayudas, etiqueta de comparación, validaciones (min, max), múltiples errores) con botón de copiado y etiqueta para comparación.
@@ -126,10 +166,9 @@ Módulos:
 	- Tener clara la forma de hacer validaciones cruzadas, por ejemplo en manejo de rangos de fechas min y max.
 	- Consultar persona + validaciones propias de Colombia (NIT, dígito de verificación, Cédula, Carné diplomático)
 	- Validación inversa de turing (ver google)
-- Generador de documentos / certificados PDF. Con encabezado, pie, marcas de agua, contenido dinámico como tablas y texto a través de plantillas y claves. Integrado con campo de texto enriquecido.
+- Generador de documentos (json a html) / certificados PDF. Con encabezado, pie, marcas de agua, contenido dinámico como tablas y texto a través de plantillas y claves. Integrado con campo de texto enriquecido. Permitir firma digital.
 - Seguridad, interfáz con componente de SSO (p.e. Keycloak).
 - Indicador de actividad, con opción de barra de progreso, mensaje y opción de cancelar.
-- Cargue de listas tipo (llave/valor) con metadata + caché. p.e. Departamento/Municipio/Indicativo tel.
 - Manejo de url's con estado embebido + encripción.
 - Tablas:
 	- Paginado del lado del servidor (ordenamiento, filtrado por columnas)
