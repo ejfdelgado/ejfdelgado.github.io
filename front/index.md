@@ -68,7 +68,7 @@ Teniendo en cuenta que las listas de datos rara vez cambian y que tienen un uso 
 
 Las listas de datos deben contener una representación tipo máquina, por ejemplo el id, que puede ser numérico o enumerado entre otros. Por otro lado deben tener la representación de usuario final que será usada para filtrar el dato. Opcionalmente debe permitir incluir metadatos. Los metadatos son información que complementa el tipo de dato y que está estrechamente relacionada a cada valor dentro de una lista de datos. Por ejemplo, los departamentos o municípios tienen asociado un indicativo de teléfono, el cuál debe estar disponible al tiempo que lo está.
 
-#### [](#header-4)Deben ser Filtrables
+#### [](#header-4)Deben ser filtrables
 
 Las listas de datos deben permitir ser filtrables. Esto es muy importante para permitir que las listas de datos tengan jerarquía. Un ejemplo básico son las listas de departamentos y municipios, en este caso los municipios deben permitir ser filtrados por un departamento específico.
 
@@ -88,7 +88,7 @@ Las fechas son un tipo de dato especial que tiene comportamientos complejos que 
 
 El tipo de dato más sencillo, preciso y estándar es el que plantea unix; el epoch. Es ampliamente soportado en todos los lenguajes: javascript, java, python, php, etc. Por lo tanto se debe utilizar este tipo de dato, tanto en el código de la capa de presentación como en la definición de los servicios del back end.
 
-#### [](#header-4)la fecha debe estar sincronizada
+#### [](#header-4)La fecha debe estar sincronizada
 
 Si la fecha no está sincronizada con la del servidor, bastará con cambiar la fecha del computador para poder esquivar las reglas. Entonces el módulo deberá mantener una versión actualizada de la fecha actual y permitir ser accedida desde el principio de la aplicación.
 
@@ -105,7 +105,11 @@ Se definen como el conjunto de datos estructurados que tienen un sentido de nego
 
 Las entidades del estado y empresas colombianas se caracterizan por tener gran cantidad de entidades de negocio, validaciones, reglas complejas y repetitivas. Al llevarlas a un desarrollos web si dicha lógica de negocio no está centralizada, tarde o temprano saldrán errores porque no hay homogeneidad en la aplicación, será evidente porque todo se comportará de formas diferentes y será difícil de mantener porque hay código replicado.
 
-### [](#header-3)¿Qué se debe incluir en las bibliotecas?
+### [](#header-3)Lineamientos
+
+En su implementación debe ser singleton.
+
+### [](#header-4)¿Qué se debe incluir en las bibliotecas?
 
 En la capa de presentación tenemos los siguientes aspectos clave:
 
@@ -115,11 +119,7 @@ En la capa de presentación tenemos los siguientes aspectos clave:
 * <strong>Las ventanas emergentes</strong>: son el conjunto de los dos aspectos anteriores, más algunos propios: ellas tienen título, ícono, mensaje y botones. Algunas veces contienen campos y tablas pero eso se abordará más adelante. Una vez más, acá se deben acotar los aspectos mencionados porque no todas las combinaciones tienen sentido. Además hay algunos que se repetirán demasiado como los mensajes de éxito, error, los que piden confirmar antes de continuar, entre otros.
 
 2. <strong>Comportamientos por configuración</strong>: 
-* Validaciones: Cada entidad de negocio tendrá una representación visual, cuando.
-
-### [](#header-3)Lineamientos
-
-En su implementación debe ser singleton.
+* Validaciones: Cada entidad de negocio tendrá una representación visual que usualmente es un conjunto de campos. Cada campo tiene sus propias validaciones, gran parte de las validaciones se pueden resolver con expresiones regulares, máximos y mínimos.
 
 #### [](#header-4)Deben permitir fragmentarse y/o tener jerarquía
 
@@ -129,9 +129,9 @@ Entonces, la primera pregunta que deben responder es ¿en qué dirección va a a
 
 Fragmento común: Siempre debe haber una parte que es común, allí se deben registrar aquellas definiciones transversales que se reutilizarán a lo largo de todo el desarrollo, este fragmento evolucionará rápidamente al principio y cesará en la mitad del proyecto. Será conocido por todos los colaboradores que poco a poco lo isrán construyendo.
 
-Luego, teniendo en cuenta de la dirección en que aumenta la aplicación, se debe tomar una segunda decisión, que 
+Luego, teniendo en cuenta de la dirección en que aumenta la aplicación, se debe tomar una segunda decisión, que...
 
-Cada proyecto puede tener sus propias bibliotecas, pero 
+Cada proyecto puede tener sus propias bibliotecas, pero...
 
 ***
 
@@ -149,7 +149,6 @@ Cada proyecto puede tener sus propias bibliotecas, pero
 
 Módulos:
 
-- Biblioteca de expresiones regulares
 - Visor de documentos (pdf/txt/imágenes) Con capacidad de imprimir.
 
 - Interfáz con Gestor documental (subir, bajar, actualizar)
