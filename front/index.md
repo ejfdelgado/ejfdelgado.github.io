@@ -18,9 +18,8 @@ Entendiendo que nuestro interés va dirigido a soluciones empresariales en Colom
 
 # [](#header-1)Desarrollo
 
+## [](#header-2)Módulo de filtros de datos
 ***
-
-## [](#header-2)Filtros de datos
 
 Son las funciones de transformación que se aplican a los datos con el fin de presentarlos al usuario final sin perjudicar el tipo de dato que se maneja en código. Por ejemplo: las fechas deben ser de tipo entero (epoch); pero al usuario se le mostrará dd/mm/aaaa, por otro lado el dinero debe ser decimal; pero el usuario vera $2'000.000.00.
 
@@ -30,7 +29,7 @@ Son las funciones de transformación que se aplican a los datos con el fin de pr
 
 * <strong>Propenso a errores</strong>: un caso ocurre en las comparaciones de datos y como consecuenca también en los ordenamientos. Por ejemplo el formato de fecha dd/mm/aaaa no se ordena correctamente porque el texto "02/02/2017" es mayor que "01/02/2018" lo cual es falso.
 
-* <strong>Homogeneidad</strong>: Si no se centralizan las funciones de transformación de datos, puede pasar que: 1. Los desarrolladores presentarán las variables al usuario final en bruto, es decir sin el formato deseado. 2. Los desarrolladores replicarán las funciones de transformación que puede que presenten comportamientos diferentes.
+* <strong>Homogeneidad</strong>: Si no se centralizan las funciones de transformación de datos, puede pasar que: 1. Los desarrolladores presentarán las variables al usuario final en bruto, es decir sin el formato deseado. 2. Los desarrolladores replicarán las funciones de transformación exibiendo comportamientos diferentes incluyendo posibles errores.
 
 ### [](#header-3)Lineamientos
 
@@ -40,15 +39,15 @@ Significa que debe existir la función que formatea el dato pero también la fun
 
 #### [](#header-4)¿qué filtros crear?
 
-En este punto es mejor pecar por exceso. Hay unos básicos que saltan a la vista como lo que se han presentado previamente; fechas o dinero. Pero también pueden existir otros más complejos, por ejemplo el que recibe un objeto que representa una empresa y genera el formato "Nit 897456-8 / Heinsohn", otro común es el que convierte un dato boleano y genera Sí/No. En cada proyecto se deben detectar todos los tipos de datos que se requieren formatear.
+En este punto es mejor pecar por exceso. Hay unos básicos que saltan a la vista como lo que se han presentado previamente; fechas o dinero. Pero también pueden existir otros más complejos, por ejemplo el que recibe un objeto que representa una empresa y genera el formato "Nit 897456-8 / Heinsohn", otro común es el que convierte un dato boleano y genera Sí/No, finalmente incluyo el que formatea decimales rellenando con ceros después de la coma. En cada proyecto se deben detectar todos los tipos de datos que se requieren formatear.
 
 #### [](#header-4)Enumeraciones
 
 Las enumeraciones son literales o textos que tienen sentido en código pero no se deben presentar al usuario final sin formatear. Por ejemplo, mientras a lo largo del código se maneja la enumeración "CEDULA_CIUDADANIA" el usuario deberá ver "Cédula de ciudadanía". Se debe crear entonces un filtro especial que transforma enumeraciones a su representación formateada. Este punto se debe complementar con el módulo de administración de listas de datos.
 
-***
 
 ## [](#header-2)Módulo de administración de listas de datos
+***
 
 Este módulo incluyen todos los tipos de datos de negocio que <strong>no</strong> son básicos (enteros, textos). Por ejemplo: 1. Tipos de documento, 2. Departamentos. 3. Estado civil entre otros. Pueden ser de dos tipos según su origen: enumeraciones o tablas, en ambos casos para la capa de presentación el origen debe ser transparente.
 
@@ -72,9 +71,8 @@ Las listas de datos deben contener una representación tipo máquina, por ejempl
 
 Las listas de datos deben permitir ser filtrables. Hay listas de datos
 
-***
-
 ## [](#header-2)Módulo de administración de fechas
+***
 
 Las fechas son un tipo de dato especial que tiene comportamientos complejos que no son evidentes. 
 
@@ -97,9 +95,8 @@ Si la fecha no está sincronizada con la del servidor, bastará con cambiar la f
 
 Este módulo debe centralizar todas las operaciones que involucren fechas, sean sumas, restas, comparaciones, etc. Todas estas funciones deben recibir representaciones epoch y deben igualmente entregar epoch.
 
-***
-
 ## [](#header-2)Módulos de bibliotecas
+***
 
 Se definen como el conjunto de datos estructurados que tienen un sentido de negocio sin lógica de programación, por ejemplo textos como etiquetas de campos, ayudas, definiciones de botones, definición de máximos y mínimos, expresiones regulares entre otros.
 
