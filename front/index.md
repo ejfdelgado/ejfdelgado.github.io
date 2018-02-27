@@ -20,7 +20,7 @@ Dado que nuestro interés va dirigido a soluciones empresariales en Colombia, se
 
 ## [](#header-2)Módulo indicador de actividad
 ***
-El indicador de actividad es un módulo sencillo pero muy útil que se materializa en la pantalla trasparente/oscura que indica que el sistema está ocupado.
+El indicador de actividad es un módulo sencillo pero muy útil que se materializa en esa pantalla trasparente u oscura. Su función principal es indicar que el sistema está ocupado.
 
 ### [](#header-3)¿Por qué es necesario?
 
@@ -29,12 +29,12 @@ El indicador de actividad es un módulo sencillo pero muy útil que se materiali
 
 ### [](#header-3)Lineamientos
 
-Este módulo debe ser singleton. Se puede plantear con una arquitectura publicador/subscriptor. Por un lado el publicador es el módulo que invoca servicios al back-end y, por otro lado, este módulo se comporta como un subscriptor. En este caso, cada invocación al servidor, deberá tener un identificador único y deberá por lo menos definir dos mensajes básicos: 1. Inicio de invocación, 2. finalización de invocación. Opcionalmente puede tener mensajes intermedios que indican el progreso.
+Este módulo debe ser singleton. Se puede plantear con una arquitectura <strong>publicador/subscriptor</strong>. Por un lado el publicador es el módulo que invoca servicios al back-end y, por otro lado, este módulo se comporta como un subscriptor. En este caso, cada invocación al servidor, deberá tener un identificador único y deberá por lo menos definir dos mensajes básicos: 1. Inicio de invocación, 2. finalización de invocación. Opcionalmente puede tener mensajes intermedios que indican el progreso.
 
 ## [](#header-2)Módulo de filtros de datos
 ***
 
-Se refiere a las funciones de transformación que se aplican a los datos con el fin de presentarlos al usuario final sin perjudicar el tipo de dato que se maneja en código. Por ejemplo: las fechas deben ser de tipo entero (epoch); pero al usuario se le mostrará dd/mm/aaaa, por otro lado el dinero debe ser decimal; pero el usuario vera $2'000.000.00.
+Este módulo incluye las funciones de transformación que se aplican a los datos con el fin de presentarlos al usuario final sin perjudicar el tipo de dato que se maneja en código. Por ejemplo: el dinero debe ser decimal; pero el usuario vera $2'000.000.00, por otro lado las fechas deben ser de tipo entero (epoch); pero al usuario se le mostrará el formato dd/mm/aaaa (o el formato que defina el cliente).
 
 ### [](#header-3)¿Por qué es necesario?
 
