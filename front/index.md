@@ -24,11 +24,11 @@ Son las funciones de transformación que se aplican a los datos con el fin de pr
 
 ### [](#header-3)¿Por qué es necesario?
 
-Rendimiento: si internamente se usan datos formateados, cada vez que toque hacer operaciones como sumas o comparaciones, será necesario primero transformar los datos, incurriendo en más operaciones. Este punto se agrava cuando las funciones de transformación son complejas.
+* <strong>Rendimiento</strong>: si internamente se usan datos formateados, cada vez que toque hacer operaciones como sumas o comparaciones, será necesario primero transformar los datos, incurriendo en más operaciones. Este punto se agrava cuando las funciones de transformación son complejas.
 
-Propenso a errores: un caso ocurre en las comparaciones de datos y como consecuenca también en los ordenamientos. Por ejemplo el formato de fecha dd/mm/aaaa no se ordena correctamente; porque el texto "02/02/2017" da mayor que "01/02/2018" lo cual es falso.
+* <strong>Propenso a errores</strong>: un caso ocurre en las comparaciones de datos y como consecuenca también en los ordenamientos. Por ejemplo el formato de fecha dd/mm/aaaa no se ordena correctamente; porque el texto "02/02/2017" da mayor que "01/02/2018" lo cual es falso.
 
-Homogeneidad: Si no se centralizan las funciones de transformación de datos, puede pasar que: 1. Los desarrolladores presentarán las variables al al usuario final en bruto, es decir sin el formato deseado. 2. Los desarrolladores replicarán las funciones de transformación que puede que presenten comportamientos diferentes.
+* <strong>Homogeneidad</strong>: Si no se centralizan las funciones de transformación de datos, puede pasar que: 1. Los desarrolladores presentarán las variables al al usuario final en bruto, es decir sin el formato deseado. 2. Los desarrolladores replicarán las funciones de transformación que puede que presenten comportamientos diferentes.
 
 ### [](#header-3)Lineamientos
 
@@ -50,15 +50,23 @@ Este módulo incluyen todos los tipos de datos de negocio que <strong>no</strong
 
 ### [](#header-3)¿Por qué es necesario?
 
-<strong>Rendimiento</strong>: Teniendo en cuenta que las listas de datos rara vez cambian y que tienen un uso intensivo a lo largo de la aplicación. Se puede incluir un módulo de caché en la capa de presentación que sirva de proxi antes de invocar el servicio. Esto tiene un impacto fuerte porque usualmente todas las pantallas tienen algun tipo de dato no básico.
+* <strong>Rendimiento</strong>: Teniendo en cuenta que las listas de datos rara vez cambian y que tienen un uso intensivo a lo largo de la aplicación. Se puede incluir un módulo de caché en la capa de presentación que sirva de proxi antes de invocar el servicio. Esto tiene un impacto fuerte porque usualmente todas las pantallas tienen algun tipo de dato no básico.
 
-<strong>Mantenibilidad</strong>: Código centralizado.
+* <strong>Mantenibilidad</strong>: Código centralizado.
 
-<strong>Facilita el desarrollo</strong>: 
+* <strong>Facilita el desarrollo</strong>: Las listas de datos se van a usar con la misma intensidad que se usarán los tipos de datos básicos. Por lo tanto si este tema está solucionado de manera transversal, facilitará su uso y administración.
 
 ### [](#header-3)Lineamientos
 
 En su implementación debe ser singleton.
+
+#### [](#header-4)Debe permitir metadatos
+
+Las listas de datos deben contener una representación tipo máquina, por ejemplo el id, que puede ser numérico o enumerado entre otros. Por otro lado deben tener la representación de usuario final que será usada para filtrar el dato. Opcionalmente debe permitir incluir metadatos. Los metadatos son información que complementa el tipo de dato y que está estrechamente relacionada a cada valor dentro de una lista de datos. Por ejemplo, los departamentos o municípios tienen asociado un indicativo de teléfono, el cuál debe estar disponible al tiempo que lo está.
+
+#### [](#header-4)Filtrable
+
+Las listas de datos deben permitir ser filtrables. Hay listas de datos
 
 ## [](#header-2)Módulos de bibliotecas
 
