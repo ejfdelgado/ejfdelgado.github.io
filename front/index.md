@@ -21,7 +21,7 @@ Entendiendo que nuestro interés va dirigido a soluciones empresariales en Colom
 ## [](#header-2)Módulo de filtros de datos
 ***
 
-Son las funciones de transformación que se aplican a los datos con el fin de presentarlos al usuario final sin perjudicar el tipo de dato que se maneja en código. Por ejemplo: las fechas deben ser de tipo entero (epoch); pero al usuario se le mostrará dd/mm/aaaa, por otro lado el dinero debe ser decimal; pero el usuario vera $2'000.000.00.
+Se refiere a las funciones de transformación que se aplican a los datos con el fin de presentarlos al usuario final sin perjudicar el tipo de dato que se maneja en código. Por ejemplo: las fechas deben ser de tipo entero (epoch); pero al usuario se le mostrará dd/mm/aaaa, por otro lado el dinero debe ser decimal; pero el usuario vera $2'000.000.00.
 
 ### [](#header-3)¿Por qué es necesario?
 
@@ -49,19 +49,21 @@ Las enumeraciones son literales o textos que tienen sentido en código pero no s
 ## [](#header-2)Módulo de administración de listas de datos
 ***
 
-Este módulo incluyen todos los tipos de datos de negocio que <strong>no</strong> son básicos (enteros, textos). Por ejemplo: 1. Tipos de documento, 2. Departamentos. 3. Estado civil entre otros. Pueden ser de dos tipos según su origen: enumeraciones o tablas, en ambos casos para la capa de presentación el origen debe ser transparente.
+En este módulo se plantea administrar todos los tipos de datos de negocio que <strong>no</strong> son básicos (enteros, textos). Por ejemplo: 1. Tipos de documento, 2. Departamentos. 3. Estado civil entre otros. Pueden tener su origen en enumeraciones o tablas, en ambos casos para la capa de presentación el origen debe ser transparente.
 
 ### [](#header-3)¿Por qué es necesario?
 
-* <strong>Rendimiento</strong>: Teniendo en cuenta que las listas de datos rara vez cambian y que tienen un uso intensivo a lo largo de la aplicación. Se puede incluir un módulo de caché en la capa de presentación que sirva de proxi antes de invocar el servicio. Esto tiene un impacto fuerte porque usualmente todas las pantallas tienen algun tipo de dato no básico.
-
-* <strong>Mantenibilidad</strong>: Código centralizado.
-
 * <strong>Facilita el desarrollo</strong>: Las listas de datos se van a usar con la misma intensidad que se usarán los tipos de datos básicos. Por lo tanto si este tema está solucionado de manera transversal, facilitará su uso y administración.
+
+* <strong>Rendimiento</strong>: Por un lado, las listas de datos pueden ser muchas, por otro lado, cada lista de datos puede tener muchos elementos. Por lo tanto, la manera como se administren va tener un impacto fuerte en rendimiento sea positivo o negativo.
 
 ### [](#header-3)Lineamientos
 
 En su implementación debe ser singleton.
+
+#### [](#header-4)Cache
+
+Teniendo en cuenta que las listas de datos rara vez cambian y que tienen un uso intensivo a lo largo de la aplicación. Este módulo debe soportar caché en la capa de presentación para que sirva de proxy antes de invocar el servicio. Esto tiene un impacto fuerte porque usualmente todas las pantallas tienen algun tipo de dato no básico sumado a los argumentos mencionados previamente.
 
 #### [](#header-4)Debe permitir metadatos
 
