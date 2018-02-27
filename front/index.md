@@ -9,14 +9,14 @@ descripcion: Arquitectura de referencia para la capa de presentación de aplicac
 
 # [](#header-1)Objetivo
 
-Definir la arquitectura de referencia para el desarrollo de una aplicación web basada en el diseño SPA (Single Page Application) y dirigida a la tecnología Angular 5. Este documento solo se enfocará en la capa de presentación. La meta final es proveer a los equipos de desarrollo lineamientos sencillos y claros, a través de módulos, que permitan avanzar progresivamente el desarrollo de acuerdo a las necesidades sin tener que hacer reprocesos (refactor).
+Definir la arquitectura de referencia para el desarrollo de una aplicación web basada en el diseño SPA (Single Page Application) y dirigida a la tecnología Angular 5. Este documento solo se enfocará en la capa de presentación. La meta final es proveer a los equipos de desarrollo lineamientos sencillos y claros, a través de los módulos mínimos, que permitan avanzar progresivamente el desarrollo de acuerdo a las necesidades sin tener que hacer reprocesos.
 
 # [](#header-1)Metodología
 
-Entendiendo que nuestro interés va dirigido a soluciones empresariales en Colombia, se listarán los requerimientos funcionales y no funcionales más comunes a los que se enfrenta el equipo de desarrollo de las aplicaciones web. Como resultado se podrá definir el alcance a través de la enumeración de los componentes con los que la aplicación web interactuará para finalmente definir los lineamientos y módulos.
+Dado que nuestro interés va dirigido a soluciones empresariales en Colombia, se listarán los requerimientos funcionales y no funcionales más comunes a los que se enfrenta el equipo de desarrollo de las aplicaciones web en este contexto. Así mismo se definirá el alcance a través del entendimiento de los actores con los que la aplicación web se debe relacionar. Finalmente se definirán los lineamientos y módulos mínimos para cumplir con los retos planteados.
 
 
-# [](#header-1)Desarrollo
+# [](#header-1)Módulos y Lineamientos
 
 ## [](#header-2)Módulo de filtros de datos
 ***
@@ -133,9 +133,12 @@ Luego, teniendo en cuenta de la dirección en que aumenta la aplicación, se deb
 
 Cada proyecto puede tener sus propias bibliotecas, pero...
 
-***
+- Biblioteca de representación visual de entidades de negocio que contiene: etiquetas/ayudas/validaciones(regex/min/max(fechas basadas en fecha del servidor))/mensajes de error/
 
-## [](#header-2)Módulo de 
+
+## [](#header-2)Módulo indicador de actividad
+***
+- Indicador de actividad, con opción de barra de progreso, mensaje y opción de cancelar.
 
 ### [](#header-3)¿Por qué es necesario?
 
@@ -143,15 +146,43 @@ Cada proyecto puede tener sus propias bibliotecas, pero...
 
 ### [](#header-3)Lineamientos
 
+
+## [](#header-2)Visualizador de documentos
 ***
 
-# [](#header-1)Requerimientos
+Visor de documentos (pdf/txt/imágenes) Con capacidad de imprimir.
 
-Módulos:
+### [](#header-3)¿Por qué es necesario?
 
-- Visor de documentos (pdf/txt/imágenes) Con capacidad de imprimir.
+* <strong></strong>: 
 
-- Interfáz con Gestor documental (subir, bajar, actualizar)
+### [](#header-3)Lineamientos
+
+
+## [](#header-2)Módulo cliente de gestor documental
+***
+
+### [](#header-3)¿Por qué es necesario?
+
+* <strong></strong>: 
+
+### [](#header-3)Lineamientos
+
+## [](#header-2)Módulo cliente de gestor documental
+***
+
+Interfáz con Gestor documental (subir, bajar, actualizar)
+
+### [](#header-3)¿Por qué es necesario?
+
+* <strong></strong>: 
+
+### [](#header-3)Lineamientos
+
+
+## [](#header-2)Fabrica de campos
+***
+
 - Directivas específicas para campos:
 	- Básicos (texto/número/html5(Correo, Celular, Teléfono)) que tengan (ayudas, etiqueta de comparación, validaciones (min, max), múltiples errores) con botón de copiado y etiqueta para comparación.
 	- Texto enriquecido WYSWYG.
@@ -165,44 +196,75 @@ Módulos:
 	- Tener clara la forma de hacer validaciones cruzadas, por ejemplo en manejo de rangos de fechas min y max.
 	- Consultar persona + validaciones propias de Colombia (NIT, dígito de verificación, Cédula, Carné diplomático)
 	- Validación inversa de turing (ver google)
+
+### [](#header-3)¿Por qué es necesario?
+
+* <strong></strong>: 
+
+### [](#header-3)Lineamientos
+
+## [](#header-2)Módulo de seguridad
+***
+Interfáz con componente de SSO (p.e. Keycloak).
+
+### [](#header-3)¿Por qué es necesario?
+
+* <strong></strong>: 
+
+### [](#header-3)Lineamientos
+
+
+
+
+
+## [](#header-2)Módulo de tablas
+***
+Debe incluir:
+
+- Paginado del lado del servidor (ordenamiento, filtrado por columnas)
+- Contenido dinámico e interactivo. (botones, campos editables, validaciones cruzadas).
+- Generador de archivos CSV/XLSX.
+- Check box de selección unica/todos
+- Control de resaltado de filas dependiendo de condiciones.
+	
+### [](#header-3)¿Por qué es necesario?
+
+* <strong></strong>: 
+
+### [](#header-3)Lineamientos
+
+
+
+
+# [](#header-1)Texto sin procesar
+***
+
 - Generador de documentos (json a html) / certificados PDF. Con encabezado, pie, marcas de agua, contenido dinámico como tablas y texto a través de plantillas y claves. Integrado con campo de texto enriquecido. Permitir firma digital.
-- Seguridad, interfáz con componente de SSO (p.e. Keycloak).
-- Indicador de actividad, con opción de barra de progreso, mensaje y opción de cancelar.
+
 - Manejo de url's con estado embebido + encripción.
-- Tablas:
-	- Paginado del lado del servidor (ordenamiento, filtrado por columnas)
-	- Contenido dinámico e interactivo. (botones, campos editables, validaciones cruzadas).
-	- Generador de archivos CSV/XLSX.
-	- Check box de selección unica/todos
-	- Control de resaltado de filas dependiendo de condiciones.
-- Administrador de tabs.
-	- Abandono de tab condicionado.
-	- Navegación controlada.
+
 - Manejo de Formularios:
 	- Usar jerarquía de Sección/Grupo de campos/etiqueta de campo. p.e. con fines de auditoría.
 	- Retroalimentación visual de errores con color rojo.
 	- Asegurar atributos name únicos.
-	
+- Modelo
+	- Detección de cambios en el modelo. Para por ejemplo solicitar guardar antes de abandonar pantalla.
+	- Granularidad de campo para dejar registro de auditoría.
+	- Almacenamiento de estados del modelo para permitir "deshacer".
 - SEO y facilidad de acceso con herramientas que leen el código y generan voz.
 	- tag <description> ligado al estado (url)
 	- Maquetación estructurada usando H1, H2, H3.
 	- Inputs con name=""
 	- Imágenes con alt=""
-
-Modelo:
-	- Detección de cambios en el modalo. Para por ejemplo solicitar guardar antes de abandonar pantalla.
-	- Granularidad de campo para dejar registro de auditoría.
-	- Almacenamiento de estados del modelo para permitir "deshacer".
-
 - Control de inicialización mínima para que la aplicación funcione correctamente (parámetros/fecha sincronizada)
 
-- Biblioteca de representación visual de entidades de negocio que contiene: etiquetas/ayudas/validaciones(regex/min/max(fechas basadas en fecha del servidor))/mensajes de error/
 
-- Biblioteca de botones (iconos/textos/ayudas/colores)
+- Tener claro el manejo para:
+	- Historias nuevas
+	- Campos nuevos
+	- Modales nuevos, que incluyan campos/tablas/botones.
+	- Integración con BPM.
 
-Tener claro el manejo para:
-- Historias nuevas
-- Campos nuevos
-- Modales nuevos, que incluyan campos/tablas/botones.
-
-- Integración con BPM.
+- Administrador de tabs.
+	- Abandono de tab condicionado.
+	- Navegación controlada.
