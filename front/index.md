@@ -158,16 +158,6 @@ Visor de documentos (pdf/txt/imágenes) Con capacidad de imprimir.
 
 ### [](#header-3)Lineamientos
 
-
-## [](#header-2)Módulo cliente de gestor documental
-***
-
-### [](#header-3)¿Por qué es necesario?
-
-* <strong></strong>: 
-
-### [](#header-3)Lineamientos
-
 ## [](#header-2)Módulo cliente de gestor documental
 ***
 
