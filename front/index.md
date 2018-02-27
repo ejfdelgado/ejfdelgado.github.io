@@ -18,6 +18,19 @@ Dado que nuestro interés va dirigido a soluciones empresariales en Colombia, se
 
 # [](#header-1)Módulos y Lineamientos
 
+## [](#header-2)Módulo indicador de actividad
+***
+El indicador de actividad es un módulo sencillo pero muy útil que se materializa en la pantalla trasparente/oscura que indica que el sistema está ocupado.
+
+### [](#header-3)¿Por qué es necesario?
+
+* <strong>Usabilidad</strong>: El usuario podrá saber que el sistema está trabajando porque tendrá una retroalimentación visual inmediata después que él realiza una acción.
+* <strong>Rendimiento</strong>: El sistemá limitará las acciones del usuario para por ejemplo evitar presionar dos veces el mismo botón por equivocación. Este comportamiento evita sobrecargar el servidor inutilmente.
+
+### [](#header-3)Lineamientos
+
+Este módulo debe ser singleton. Se puede plantear con una arquitectura publicador/subscriptor. Por un lado el publicador es el módulo que invoca servicios al back-end y, por otro lado, este módulo se comporta como un subscriptor. En este caso, cada invocación al servidor, deberá tener un identificador único y deberá por lo menos definir dos mensajes básicos: 1. Inicio de invocación, 2. finalización de invocación. Opcionalmente puede tener mensajes intermedios que indican el progreso.
+
 ## [](#header-2)Módulo de filtros de datos
 ***
 
@@ -135,16 +148,6 @@ Cada proyecto puede tener sus propias bibliotecas, pero...
 
 - Biblioteca de representación visual de entidades de negocio que contiene: etiquetas/ayudas/validaciones(regex/min/max(fechas basadas en fecha del servidor))/mensajes de error/
 
-
-## [](#header-2)Módulo indicador de actividad
-***
-- Indicador de actividad, con opción de barra de progreso, mensaje y opción de cancelar.
-
-### [](#header-3)¿Por qué es necesario?
-
-* <strong></strong>: 
-
-### [](#header-3)Lineamientos
 
 
 ## [](#header-2)Visualizador de documentos
