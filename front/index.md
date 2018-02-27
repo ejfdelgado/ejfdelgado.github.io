@@ -71,7 +71,7 @@ Las listas de datos deben contener una representación tipo máquina, por ejempl
 
 #### [](#header-4)Filtrable
 
-Las listas de datos deben permitir ser filtrables. Hay listas de datos
+Las listas de datos deben permitir ser filtrables. Esto es muy importante para permitir que las listas de datos tengan jerarquía. Un ejemplo básico son las listas de departamentos y municipios, en este caso los municipios deben permitir ser filtrados por un departamento específico.
 
 ## [](#header-2)Módulo de administración de fechas
 ***
@@ -150,15 +150,10 @@ Cada proyecto puede tener sus propias bibliotecas, pero
 
 Módulos:
 
-- Cargue de listas tipo (llave/valor) con metadata + caché. p.e. Departamento/Municipio/Indicativo tel.
 - Biblioteca de expresiones regulares
-- Administrador de fechas.
-	- Sincronizar fecha con el servidor; no usar la local del navegador.
-	- Cálculo epoch de: (Fin del (día/mes/año), Inicio del (día/mes/año), sumar (días, meses, años))
+- Visor de documentos (pdf/txt/imágenes) Con capacidad de imprimir.
 
 - Interfáz con Gestor documental (subir, bajar, actualizar)
-- Visor de documentos (pdf/txt/imágenes) Con capacidad de imprimir.
-- Filtros configurables (dinero/fecha/periodo/epoch) (manejo controlado de decimales, indicador de millomes, miles, signos de $,%)
 - Directivas específicas para campos:
 	- Básicos (texto/número/html5(Correo, Celular, Teléfono)) que tengan (ayudas, etiqueta de comparación, validaciones (min, max), múltiples errores) con botón de copiado y etiqueta para comparación.
 	- Texto enriquecido WYSWYG.
