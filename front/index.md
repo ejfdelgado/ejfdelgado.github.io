@@ -18,7 +18,49 @@ Entendiendo que nuestro interés va dirigido a soluciones empresariales en Colom
 
 # [](#header-1)Desarrollo
 
-## [](#header-2)Bibliotecas
+## [](#header-2)Filtros de datos
+
+Son las funciones de transformación que se aplican a los datos con el fin de presentarlos al usuario final sin perjudicar el tipo de dato que se maneja en código. Por ejemplo: las fechas deben ser de tipo entero (epoch); pero al usuario se le mostrará dd/mm/aaaa, por otro lado el dinero debe ser decimal; pero el usuario vera $2'000.000.00.
+
+### [](#header-3)¿Por qué es necesario?
+
+Rendimiento: si internamente se usan datos formateados, cada vez que toque hacer operaciones como sumas o comparaciones, será necesario primero transformar los datos, incurriendo en más operaciones. Este punto se agrava cuando las funciones de transformación son complejas.
+
+Propenso a errores: un caso ocurre en las comparaciones de datos y como consecuenca también en los ordenamientos. Por ejemplo el formato de fecha dd/mm/aaaa no se ordena correctamente; porque el texto "02/02/2017" da mayor que "01/02/2018" lo cual es falso.
+
+Homogeneidad: Si no se centralizan las funciones de transformación de datos, puede pasar que: 1. Los desarrolladores presentarán las variables al al usuario final en bruto, es decir sin el formato deseado. 2. Los desarrolladores replicarán las funciones de transformación que puede que presenten comportamientos diferentes.
+
+### [](#header-3)Lineamientos
+
+#### [](#header-4)Bidireccional
+
+Significa que debe existir la función que formatea el dato pero también la función que regenera el dato a partir de una representación formateada. Aplica para todos los tipos de datos involucrados en campos de entrada. Esto es prerrequisito porque los campos de entrada recibirán el dato en la representación del usuario y estos deben bajar al código como datos básicos. Una implicación de este punto es que las funciones deben ser 1:1, es decir que una misma representación formateada debe tener un único valor posible.
+
+#### [](#header-4)¿qué filtros crear?
+
+En este punto es mejor pecar por exceso. Hay unos básicos que saltan a la vista como lo que se han presentado previamente; fechas o dinero. Pero también pueden existir otros más complejos, por ejemplo el que recibe un objeto que representa una empresa y genera el formato "Nit 897456-8 / Heinsohn", otro común es el que convierte un dato boleano y genera Sí/No. En cada proyecto se deben detectar todos los tipos de datos que se requieren formatear.
+
+#### [](#header-4)Enumeraciones
+
+Las enumeraciones son literales o textos que tienen sentido en código pero no se deben presentar al usuario final sin formatear. Por ejemplo, mientras a lo largo del código se maneja la enumeración "CEDULA_CIUDADANIA" el usuario deberá ver "Cédula de ciudadanía". Se debe crear entonces un filtro especial que transforma enumeraciones a su representación formateada. Este punto se debe complementar con el módulo de administración de listas de datos.
+
+## [](#header-2)Módulo de administración de listas de datos
+
+Este módulo incluyen todos los tipos de datos de negocio que <strong>no</strong> son básicos (enteros, textos). Por ejemplo: 1. Tipos de documento, 2. Departamentos. 3. Estado civil entre otros. Pueden ser de dos tipos según su origen: enumeraciones o tablas, en ambos casos para la capa de presentación el origen debe ser transparente.
+
+### [](#header-3)¿Por qué es necesario?
+
+<strong>Rendimiento</strong>: Teniendo en cuenta que las listas de datos rara vez cambian y que tienen un uso intensivo a lo largo de la aplicación. Se puede incluir un módulo de caché en la capa de presentación que sirva de proxi antes de invocar el servicio. Esto tiene un impacto fuerte porque usualmente todas las pantallas tienen algun tipo de dato no básico.
+
+<strong>Mantenibilidad</strong>: Código centralizado.
+
+<strong>Facilita el desarrollo</strong>: 
+
+### [](#header-3)Lineamientos
+
+En su implementación debe ser singleton.
+
+## [](#header-2)Módulos de bibliotecas
 
 Se definen como el conjunto de datos estructurados que tienen un sentido de negocio sin lógica de programación, por ejemplo textos como etiquetas de campos, ayudas, definiciones de botones, definición de máximos y mínimos, expresiones regulares entre otros.
 
@@ -41,6 +83,8 @@ En la capa de presentación tenemos los siguientes aspectos clave:
 
 ### [](#header-3)Lineamientos
 
+En su implementación debe ser singleton.
+
 #### [](#header-4)Fragmentación y/o jerarquía
 
 Para tener éxito en la implantación de las bibliotecas, se deben fragmentar y/o jerarquizar. Si no está divido y/o agrupada la información, usualmente los desarrolladores perderán el orden repitiendo definiciones o dejando de usar las bibliotecas centralizadas remplazándolas por código quemado.
@@ -52,7 +96,6 @@ Fragmento común: Siempre debe haber una parte que es común, allí se deben reg
 Luego, teniendo en cuenta de la dirección en que aumenta la aplicación, se debe tomar una segunda decisión, que 
 
 Cada proyecto puede tener sus propias bibliotecas, pero 
-
 
 # [](#header-1)Requerimientos
 
