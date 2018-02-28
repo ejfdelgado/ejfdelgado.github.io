@@ -43,9 +43,9 @@ Se plantea esta arquitectura porque usualmente en la comunicación desde y hacia
 
 Hay unos comportamientos que dependen del progreso de la invocación http y otros del "Status Code" de la respuesta.
 
-- Progreso de la Invocación: al iniciar la invocación se debe retroalimentar al usuario que el sistema está ocupado hasta que la invocación finalice. Un caso más sofisticado puede incluir la notificación de progreso, por ejemplo cuando se trata de enviar archivos grandes al servidor, además de permitir cancelar la invocación a juicio del usuario.
+- <strong>Progreso de la Invocación</strong>: Al iniciar la invocación se debe retroalimentar al usuario que el sistema está ocupado hasta que la invocación finalice. Un caso más sofisticado puede incluir la notificación de progreso, por ejemplo cuando se trata de enviar archivos grandes al servidor. Finalmente se puede agregan un botón cancelar que permita abortar la invocación a juicio del usuario.
 
-- "Status Code" de la Respuesta: se derivan comportamientos que se deben factorizar. Algunos ejemplos se listan a continuación:
+- <strong>"Status Code" de la Respuesta</strong>: Los códigos estándares http permiten implementar comportamientos que se deben factorizar. Algunos ejemplos se listan a continuación:
 
 	* <strong>Errores generales</strong>: El código 500 debe por lo general mostrar una ventana emergente notificando que es un error inesperado en el servidor.
 	* <strong>Errores de negocio</strong>: Por otro lado, el código de error de negocio 409, a diferencia del anterior pueden dar algún detalle o mensaje que permita entender más fácilmente lo que sucede, en estos casos la ventana emergente podría remplazar el mensaje genérico por el detalle que provea el back end.
