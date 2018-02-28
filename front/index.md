@@ -247,9 +247,6 @@ Interfáz con componente de SSO (p.e. Keycloak).
 ### [](#header-3)Lineamientos
 
 
-
-
-
 ## [](#header-2)Módulo de tablas
 ***
 Debe incluir:
@@ -266,6 +263,15 @@ Debe incluir:
 
 ### [](#header-3)Lineamientos
 
+
+## [](#header-2)Módulo de parámetros
+***
+	
+### [](#header-3)¿Por qué es necesario?
+
+* <strong></strong>: 
+
+### [](#header-3)Lineamientos
 
 
 
