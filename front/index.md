@@ -18,6 +18,44 @@ Dado que nuestro interés va dirigido a soluciones empresariales en Colombia, se
 
 # [](#header-1)Módulos y Lineamientos
 
+## [](#header-2)Módulo de invocación a servicios
+***
+Se establece como la única puerta de comunicación con los servicios del back end. Generalmente hay varios aspectos técnicos, de negocio y de desarrollo que son recurrentes al momento de implementar la comunicación con los servicios. Por lo tanto es buena práctica encapsular esta lógica en un único módulo.
+	
+### [](#header-3)¿Por qué es necesario?
+
+* <strong>Seguridad</strong>: La invocación a servicios puede incluir manejo de cabeceras http para soportar los aspectos de seguridad. El módulo puede esconder esta lógica repetitiva en cada invocación. Si eso dependiera del desarrollador en cada invocación, podría olvidarlo y quedarían servicios incompletos.
+* <strong>Complejidad de desarrollo</strong>: Generalmente hay lógica repetitiva en la capa de presentación asociada a las invocaciones http. Por ejemplo, 1. Cuando hay error de servidor se debe interpretar y mostrar una ventana emergente, 2. Cuando todo va bien, se muestra una ventana de éxito genérica, 3. Mientras el servicio está en proceso de responder, se debe indicar que el sistema está ocupado, entre otros. Si toda esta lógica se debe implementar cada vez que se hace una invocación, será demasiado compleja y confusa para leer y corregir errores.
+
+### [](#header-3)Lineamientos
+
+#### [](#header-4)Se debe usar una arquitectura de tuberías
+
+Se plantea esta arquitectura porque usualmente en la comunicación desde y hacia los servicios, hay procesos genéricos de transformación de datos repetitivos. Dependiendo de la dirección en que viajan los datos se incluyen:
+
+* <strong>Invocación</strong>: Este módulo plantea factorizar atributos repetitivos en la invocación. Por ejemplo, la IP y puerto de la url objeto de la invocación; el atributo "Accept", puede ser siempre application/json; encabezados de seguridad como el "Bearer" se debe agregar automáticamente; finalmente pueden necesitarce encabezados propios de la solución. Todo esto permite agregar modificaciones sin afectar los desarrollos previos.
+
+* <strong>Respuesta</strong>: El "Status Code" de la respuesta puede implicar transformación de datos. Por ejemplo, el estándar http define el 204 cuando no hay resultados y los servicios no están obligados a retornar ningún dato, entonces se hace necesario y útil recrear una respuesta virtual acorde al dato esperado. Por ejemplo, si se esperaba una lista, se debe responder con una lista vacia [], si se esperaba un conteo, se debe responder con un cero, si se esperaba un texto o un objeto, se debe recrear un nulo.
+
+* <strong>Respuesta con caché</strong>: Se puede manejar un caché en el front-end, con políticas de actualización periódica. En este caso la respuesta será generada automáticamente a partir de datos en memoria sin hacer la invocación realmente.
+
+#### [](#header-4)Las tuberías deben transformar datos en comportamientos
+
+Hay unos comportamientos que dependen del progreso de la invocación http y otros del "Status Code" de la respuesta.
+
+- Progreso de la Invocación: al iniciar la invocación se debe retroalimentar al usuario que el sistema está ocupado hasta que la invocación finalice. Un caso más sofisticado puede incluir la notificación de progreso, por ejemplo cuando se trata de enviar archivos grandes al servidor, además de permitir cancelar la invocación a juicio del usuario.
+
+- "Status Code" de la Respuesta: se derivan comportamientos que se deben factorizar. Algunos ejemplos se listan a continuación:
+
+	* <strong>Errores generales</strong>: El código 500 debe por lo general mostrar una ventana emergente notificando que es un error inesperado en el servidor.
+	* <strong>Errores de negocio</strong>: Por otro lado, el código de error de negocio 409, a diferencia del anterior pueden dar algún detalle o mensaje que permita entender más fácilmente lo que sucede, en estos casos la ventana emergente podría remplazar el mensaje genérico por el detalle que provea el back end.
+	* <strong>Trazabilidad</strong>: Se puede incluir que en caso de error, invoque otro servicio de log de errores que incluya detalles de la invocación y la respuesta.
+	* <strong>Verbosidad</strong>: En modo desarrollo, se puede habilitar un modo verboso visualmente que permita al desarrollador ver la traza completa de error sin tener que ver la consola de errores.
+
+#### [](#header-4)Tuberías configurables
+
+Se debe permitir habilitar o desabilitar los comportamientos predefinidos porque siempre hay excepciones a estas reglas. Por ejemplo, habrán casos donde, por negocio, no importa si un servicio falla, solo debe continuar.
+
 ## [](#header-2)Módulo indicador de actividad
 ***
 El indicador de actividad es un módulo sencillo pero muy útil que se materializa en esa pantalla trasparente u oscura. Su función principal es indicar que el sistema está ocupado.
@@ -29,7 +67,9 @@ El indicador de actividad es un módulo sencillo pero muy útil que se materiali
 
 ### [](#header-3)Lineamientos
 
-Este módulo debe ser singleton. Se puede plantear con una arquitectura <strong>publicador/subscriptor</strong>. Por un lado el publicador es el módulo que invoca servicios al back-end y, por otro lado, este módulo se comporta como un subscriptor. En este caso, cada invocación al servidor, deberá tener un identificador único y deberá por lo menos definir dos mensajes básicos: 1. Inicio de invocación, 2. finalización de invocación. Opcionalmente puede tener mensajes intermedios que indican el progreso.
+Este módulo debe ser singleton. Se debe plantear como un módulo dentro de la arquitectura de tuberías del "módulo de invocación a servicios".
+
+
 
 ## [](#header-2)Módulo de filtros de datos
 ***
