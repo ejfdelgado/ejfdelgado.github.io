@@ -15,6 +15,25 @@ Definir la arquitectura de referencia para el desarrollo de una aplicación web 
 
 Dado que nuestro interés va dirigido a soluciones empresariales en Colombia, se listarán los requerimientos funcionales y no funcionales más comunes a los que se enfrenta el equipo de desarrollo de las aplicaciones web en este contexto. Así mismo se definirá el alcance a través del entendimiento de los actores con los que la aplicación web se debe relacionar. Finalmente se definirán los lineamientos y módulos mínimos para cumplir con los retos planteados.
 
+# [](#header-1)Requerimientos no funcionales
+
+## [](#header-2)Eficiente
+
+La adopción de una nueva plataforma web depende fuertemente del rendimiento; los usuarios dejarán de usar una plataforma lenta tarde o temprano. Se supone que la tecnología los debe ayudar para agilizar sus tareas, no para obstaculizarlos. Por lo tanto las aplicaciones web deben estar diseñadas para ser eficientes; desde la definición de alto nivel hasta los lineamientos de implementación, es fácil que una mala implementación de desarrollo lleve al suelo el rendimiento y termine en el desuso.
+
+## [](#header-2)Accesible
+
+Con el boom de los dispositivos móviles se crean nuevos puntos de acceso. Estos puntos permiten llegar rápidamente al público en general y además facilitan la adopción. Si este punto se ignora, será una desventaja competitiva en un medio tan competitivo como lo es la tecnología. Dentro de este requerimiento se incluyen interfaces adaptativas a los diferentes tamaños, también se incluyen los requerimientos de accesibilidad; por ejemplo los lectores automáticos para invidentes.
+
+## [](#header-2)Usable
+
+La buena o mala experiencia del usuario final marcará la adopción o rechazo de la solución. Por lo tanto, en la interfáz se deben usar controles intuitivos, eficaces y sencillos. La buena noticia es que gracias a la evolución de las interfáces web, se han creado estándares que facilitan la construcción de aplicaciones web. El ejemplo claro es la evolución a html5 donde hay campos que materializan conceptos de negocio, por ejemplo los correos o teléfonos.
+
+## [](#header-2)Escalable desde la perpectiva de negocio
+
+Las definiciones de los modelos de negocio en Colombia por lo general son muy complejos, esto se complica más cuando se descubre que es normal encontrarse con las excepciones de las excepciones. Entonces, la aplicación web debe estar preparada para escalar en la dirección de las definiciones de negocio. Por un lado, debe permitir modificar fácilmente la interfáz de los flujos agregando o quitando pasos intermedios. Por otro lado, también se deben abstraer conceptos para reutilizarlos, sin olvidar agregar la libertan de personalizarlos para soportar las excepciones. Para lograr este último punto es muy importante que el sistema sea parametrizable, ya que por lo general las excepciones se dan en términos de umbrales de parámetros o de valores específicos.
+
+## [](#header-2)
 
 # [](#header-1)Módulos y Lineamientos
 
