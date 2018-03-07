@@ -23,11 +23,11 @@ La adopción de una nueva plataforma web depende fuertemente del rendimiento; ta
 
 ## [](#header-2)Accesible
 
-Con el boom de los dispositivos móviles se crean nuevos puntos de acceso. Estos puntos permiten llegar rápidamente al público en general facilitando la adopción. Si este punto no se tiene en cuenta, será una desventaja en un medio tan competitivo como lo es la tecnología. Dentro de este requerimiento se incluyen interfaces adaptables a los tamaños de pantallas, y en general se incluyen los requerimientos de <a href="https://www.w3.org/TR/WCAG20/">los lineamientos de accesibilidad de la W3C</a>; por ejemplo la interoperabilidad con lectores automáticos para invidentes, capacidad de operar sin ratón, entre otras.
+Con el boom de los dispositivos móviles se crean nuevos puntos de acceso. Estos puntos permiten llegar rápidamente al público en general facilitando la adopción. Si este punto no se tiene en cuenta, será una desventaja en un medio tan competitivo como lo es la tecnología. Dentro de este requerimiento se incluyen interfaces adaptables a los tamaños de pantallas, y en general se incluyen los requerimientos de <a href="https://www.w3.org/TR/WCAG20/" target="_blank">los lineamientos de accesibilidad de la W3C</a>; por ejemplo la interoperabilidad con lectores automáticos para invidentes, capacidad de operar sin ratón, entre otras.
 
 ## [](#header-2)Usable
 
-La buena o mala experiencia del usuario final marcará la adopción o rechazo de la solución. Por lo tanto, en la interfáz se deben usar controles intuitivos, eficaces y sencillos. La buena noticia es que gracias a la evolución de las interfáces web, se han creado estándares que facilitan la construcción de aplicaciones web. El ejemplo claro es la evolución a html5 donde hay campos que materializan conceptos de negocio, por ejemplo los correos o teléfonos.
+Este atributo solicita que nuestra aplicación web sea predecible por un usuario promedio. Este punto es importante porque la buena o mala experiencia del usuario marcará la adopción o rechazo de la solución. Por un lado, en la interfáz se deben usar controles intuitivos, eficaces y sencillos para cada situación. Gracias a la evolución de las interfáces web, se han creado estándares que facilitan su construcción, un ejemplo es la evolución a html5 donde hay campos que materializan conceptos de negocio, por ejemplo los correos o teléfonos.
 
 ## [](#header-2)Extensible
 
