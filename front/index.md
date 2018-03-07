@@ -1,7 +1,7 @@
 ---
 layout: default
 titulo: html5/css3/ts/js
-descripcion: Arquitectura de referencia para la capa de presentación de aplicaciónes empresariales en Colombia
+descripcion: Arquitectura de referencia para la capa de presentación de aplicaciónes empresariales en el contexto colombiano
 ---
 
 * Do not remove this line (it will not be displayed)
@@ -19,11 +19,11 @@ Dado que nuestro interés va dirigido a soluciones empresariales en Colombia, se
 
 ## [](#header-2)Eficiente
 
-La adopción de una nueva plataforma web depende fuertemente del rendimiento; los usuarios dejarán de usar una plataforma lenta tarde o temprano. Se supone que la tecnología los debe ayudar para agilizar sus tareas, no para obstaculizarlos. Por lo tanto las aplicaciones web deben estar diseñadas para ser eficientes; desde la definición de alto nivel hasta los lineamientos de implementación, es fácil que una mala implementación de desarrollo lleve al suelo el rendimiento y termine en el desuso.
+La adopción de una nueva plataforma web depende fuertemente del rendimiento; tarde o temprano los usuarios dejarán de usar una plataforma lenta. Se supone que la tecnología debe ayudar para agilizar las tareas, no para obstaculizar. Por lo tanto las aplicaciones web deben estar diseñadas para ser eficientes; no solo la definición de alto nivel, sino también los lineamientos de implementación porque es fácil que una mala implementación de desarrollo lleve al suelo el rendimiento y termine en el desuso.
 
 ## [](#header-2)Accesible
 
-Con el boom de los dispositivos móviles se crean nuevos puntos de acceso. Estos puntos permiten llegar rápidamente al público en general y además facilitan la adopción. Si este punto se ignora, será una desventaja competitiva en un medio tan competitivo como lo es la tecnología. Dentro de este requerimiento se incluyen interfaces adaptativas a los diferentes tamaños, también se incluyen los requerimientos de accesibilidad; por ejemplo los lectores automáticos para invidentes.
+Con el boom de los dispositivos móviles se crean nuevos puntos de acceso. Estos puntos permiten llegar rápidamente al público en general facilitando la adopción. Si este punto no se tiene en cuenta, será una desventaja en un medio tan competitivo como lo es la tecnología. Dentro de este requerimiento se incluyen interfaces adaptables a los tamaños de pantallas, y en general se incluyen los requerimientos de <a href="https://www.w3.org/TR/WCAG20/">los lineamientos de accesibilidad de la W3C</a>; por ejemplo la interoperabilidad con lectores automáticos para invidentes, capacidad de operar sin ratón, entre otras.
 
 ## [](#header-2)Usable
 
