@@ -29,9 +29,9 @@ Con el boom de los dispositivos móviles se crean nuevos puntos de acceso. Estos
 
 La buena o mala experiencia del usuario final marcará la adopción o rechazo de la solución. Por lo tanto, en la interfáz se deben usar controles intuitivos, eficaces y sencillos. La buena noticia es que gracias a la evolución de las interfáces web, se han creado estándares que facilitan la construcción de aplicaciones web. El ejemplo claro es la evolución a html5 donde hay campos que materializan conceptos de negocio, por ejemplo los correos o teléfonos.
 
-## [](#header-2)Escalable desde la perpectiva de negocio
+## [](#header-2)Extensible
 
-Las definiciones de los modelos de negocio en Colombia por lo general son muy complejos, esto se complica más cuando se descubre que es normal encontrarse con las excepciones de las excepciones. Entonces, la aplicación web debe estar preparada para escalar en la dirección de las definiciones de negocio. Por un lado, debe permitir modificar fácilmente la interfáz de los flujos agregando o quitando pasos intermedios. Por otro lado, también se deben abstraer conceptos para reutilizarlos, sin olvidar agregar la libertan de personalizarlos para soportar las excepciones. Para lograr este último punto es muy importante que el sistema sea parametrizable, ya que por lo general las excepciones se dan en términos de umbrales de parámetros o de valores específicos.
+Las definiciones de los modelos de negocio en Colombia por lo general son muy complejos, esto se complica más cuando se descubre que es normal encontrarse con las excepciones de las excepciones. Entonces, la aplicación web debe estar preparada para crecer en la dirección de las definiciones de negocio. Por un lado, debe permitir modificar fácilmente la interfáz de los flujos agregando o quitando pasos intermedios. Por otro lado, también se deben abstraer conceptos para reutilizarlos, sin olvidar agregar la libertan de personalizarlos para soportar las excepciones. Para lograr este último punto es muy importante que el sistema sea parametrizable, ya que por lo general las excepciones se dan en términos de umbrales de parámetros o de valores específicos.
 
 ## [](#header-2)
 
