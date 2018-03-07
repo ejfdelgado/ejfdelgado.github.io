@@ -27,7 +27,7 @@ Con el boom de los dispositivos móviles se crean nuevos puntos de acceso. Estos
 
 ## [](#header-2)Usable
 
-Este atributo solicita que nuestra aplicación web sea predecible por un usuario promedio. Este punto es importante porque la buena o mala experiencia del usuario marcará la adopción o rechazo de la solución. Por un lado, en la interfáz se deben usar controles intuitivos, eficaces y sencillos para cada situación. Gracias a la evolución de las interfáces web, se han creado estándares que facilitan su construcción, un ejemplo es la evolución a html5 donde hay campos que materializan conceptos de negocio, por ejemplo los correos o teléfonos.
+Este atributo solicita que nuestra aplicación web sea predecible por un usuario promedio. Este punto es importante porque la buena o mala experiencia del usuario marcará la adopción o rechazo de la solución. Por un lado, en la interfáz se deben usar controles intuitivos y sencillos para cada situación, gracias a la evolución a html5, se define un estándar que facilita la construcción porque delegan al dispositivo la forma de interactuar con los tipos de campos de correos, teléfonos, calendarios y campos numéricos entre otros. Por otro lado, tal vez un poco más abstracto, se debe aplicar el sentido común para que el flujo de pasos que sigue el usuario tenga coherencia, además se debe asegurar que si hay más de un camino para llegar a un mismo punto, el resultado sea coherentemente el mismo.
 
 ## [](#header-2)Extensible
 
